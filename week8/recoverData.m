@@ -21,6 +21,13 @@ X_rec = zeros(size(Z, 1), size(U, 1));
 %               Notice that U(j, 1:K) is a row vector.
 %               
 
+for i=1:size(Z, 1)
+    v = Z(i, :);
+    % x(i) = U * z(i) = U * v'
+    % U * v' is n-dim col vector 
+    % (U * v')' == v * U' is n-dim row vector
+    X_rec(i, :) = v * U(:, 1:K)';
+end
 
 
 % =============================================================
